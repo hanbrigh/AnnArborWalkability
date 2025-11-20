@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 import streamlit.components.v1 as components
 import os
 
@@ -68,14 +67,9 @@ if reddit_df is not None:
     """)
 
     # 1.1: Sentiment Distribution Histogram
-    fig_hist = px.histogram(
-        reddit_df,
-        x="sentiment_score",
-        title="Distribution of Reddit Sentiment Scores (Compound)",
-        nbins=50,
-        labels={"sentiment_score": "Sentiment Score", "count": "Number of Comments"}
-    )
-    st.plotly_chart(fig_hist, use_container_width=True)
+    st.subheader("Sentiment Distribution")
+    st.markdown("The histogram below shows the distribution of sentiment scores for Reddit comments related to walkability.")
+    st.bar_chart(data=reddit_df, x='sentiment_score', y=None, use_container_width=True)
 
     # 1.2: Most Positive and Negative Comments
     st.subheader("What are people saying?")
@@ -122,17 +116,7 @@ if neighborhood_df is not None:
     
     # Sort data for the chart
     top_10 = neighborhood_df.sort_values("weighted_walkability", ascending=False).head(10).sort_values("weighted_walkability", ascending=True)
-    
-    fig_bar = px.bar(
-        top_10,
-        y="neighborhood_name",
-        x="weighted_walkability",
-        orientation='h',
-        title="Top 10 Neighborhoods by Weighted Walkability Score",
-        labels={"neighborhood_name": "Neighborhood", "weighted_walkability": "Weighted Walkability Score"}
-    )
-    fig_bar.update_layout(yaxis={'categoryorder':'total ascending'})
-    st.plotly_chart(fig_bar, use_container_width=True)
+    st.bar_chart(data=top_10, x='neighborhood', y='weighted_walkability', use_container_width=True)
     
     # 2.2: Full Neighborhood Rankings Dataframe
     st.subheader("Full Neighborhood Rankings")
