@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
-#import plotly.express as px
 import streamlit.components.v1 as components
 import os
+import altair as alt
+
 
 # --- Page Configuration ---
 st.set_page_config(
@@ -68,14 +69,34 @@ if reddit_df is not None:
     """)
 
     # 1.1: Sentiment Distribution Histogram
-    '''fig_hist = px.histogram(
-        reddit_df,
-        x="sentiment_score",
-        title="Distribution of Reddit Sentiment Scores (Compound)",
-        nbins=50,
-        labels={"sentiment_score": "Sentiment Score", "count": "Number of Comments"}
+    st.subheader("Sentiment Distribution")
+    st.markdown("The histogram below shows the distribution of sentiment scores for Reddit comments related to walkability.")
+    chart = alt.Chart(reddit_df).mark_bar().encode(
+        alt.X("sentiment_score", bin=alt.Bin(maxbins=50), title="Sentiment Score"),
+        alt.Y('count()', title="Number of Comments"),
+        tooltip=["sentiment_score", "count()"]
+    ).properties(
+        title="Distribution of Reddit Sentiment Scores (All)"
     )
-    st.plotly_chart(fig_hist, use_container_width=True)'''
+
+
+    # Display the Altair chart in Streamlit
+    st.altair_chart(chart, use_container_width=True)
+
+    reddit_df0 = reddit_df[reddit_df['sentiment_score'] != 0]
+    chart2 = alt.Chart(reddit_df0).mark_bar().encode(
+        alt.X("sentiment_score", bin=alt.Bin(maxbins=50), title="Sentiment Score"),
+        alt.Y('count()', title="Number of Comments"),
+        tooltip=["sentiment_score", "count()"]
+    ).properties(
+        title="Distribution of Reddit Sentiment Scores (Without score 0)"
+    )
+
+
+    # Display the Altair chart in Streamlit
+    st.altair_chart(chart2, use_container_width=True)
+
+
 
     # 1.2: Most Positive and Negative Comments
     st.subheader("What are people saying?")
@@ -122,18 +143,25 @@ if neighborhood_df is not None:
     
     # Sort data for the chart
     top_10 = neighborhood_df.sort_values("weighted_walkability", ascending=False).head(10).sort_values("weighted_walkability", ascending=True)
-    
-    '''fig_bar = px.bar(
-        top_10,
-        y="neighborhood_name",
-        x="weighted_walkability",
-        orientation='h',
-        title="Top 10 Neighborhoods by Weighted Walkability Score",
-        labels={"neighborhood_name": "Neighborhood", "weighted_walkability": "Weighted Walkability Score"}
+    #st.bar_chart(data=top_10, x='neighborhood', y='weighted_walkability', use_container_width=True)
+    df_sorted = top_10.sort_values("weighted_walkability", ascending=False)
+
+    chart = (
+        alt.Chart(df_sorted)
+        .mark_bar()
+        .encode(
+            x=alt.X("weighted_walkability:Q", title="Weighted Walkability Score"),
+            y=alt.Y("neighborhood_name:N", sort=None, title="Neighborhood"),
+            tooltip=["neighborhood_name", "weighted_walkability"]
+        )
+        .properties(
+            title="Top 10 Neighborhoods by Weighted Walkability Score",
+            width='container'
+        )
     )
-    fig_bar.update_layout(yaxis={'categoryorder':'total ascending'})
-    st.plotly_chart(fig_bar, use_container_width=True)'''
-    
+
+    st.altair_chart(chart, use_container_width=True)
+
     # 2.2: Full Neighborhood Rankings Dataframe
     st.subheader("Full Neighborhood Rankings")
     st.dataframe(neighborhood_df)
