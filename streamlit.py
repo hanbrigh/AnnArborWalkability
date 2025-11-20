@@ -52,8 +52,9 @@ html_map = load_html_map(MAP_FILE)
 # --- Main Application ---
 st.title("Ann Arbor Walkability: A Two-Part Analysis")
 st.markdown("""
-This presentation explores walkability in Ann Arbor by combining two different perspectives:
-1.  **Public Sentiment:** What are people saying on social media (r/AnnArbor) about walkability, downtown access, and pedestrian issues?
+By: Brighton Han\n
+I wanted to explore walkability in Ann Arbor from multiple perspectives:
+1.  **Public Sentiment:** What are people saying on Reddit (r/AnnArbor) about walkability, downtown access, and pedestrian issues?
 2.  **Geospatial Data:** Which neighborhoods and street paths are objectively the most walkable based on network analysis from OpenStreetMap?
 """)
 
@@ -64,8 +65,8 @@ st.header("Part 1: The Public's Voice - Reddit Sentiment")
 
 if reddit_df is not None:
     st.markdown("""
-    We analyzed posts and comments from the r/AnnArbor subreddit to gauge public opinion.
-    Using VADER sentiment analysis, each comment was assigned a score from -1 (very negative) to +1 (very positive).
+    I analyzed posts and comments from the r/AnnArbor subreddit to gauge public opinion.
+    Using VADER sentiment analysis, I assigned each comment a score from -1 (very negative) to +1 (very positive).
     """)
 
     # 1.1: Sentiment Distribution Histogram
@@ -80,7 +81,6 @@ if reddit_df is not None:
     )
 
 
-    # Display the Altair chart in Streamlit
     st.altair_chart(chart, use_container_width=True)
 
     reddit_df0 = reddit_df[reddit_df['sentiment_score'] != 0]
@@ -95,6 +95,9 @@ if reddit_df is not None:
 
     # Display the Altair chart in Streamlit
     st.altair_chart(chart2, use_container_width=True)
+    st.markdown("Here, once I removed the comments with a sentiment score of 0, we can see a slight left" \
+    " skewed distribution. Most of the people in these comments have a slightly positive sentiment" \
+    " towards walkability in Ann Arbor. To see what specifically people are saying, take a look down below!")
 
 
 
@@ -134,8 +137,8 @@ st.header("Part 2: The Objective Data - Neighborhood Walkability")
 
 if neighborhood_df is not None:
     st.markdown("""
-    Using OpenStreetMap data and the `osmnx` library, we calculated a 'walkability' score 
-    (based on network closeness centrality) for each street segment and aggregated these scores by neighborhood.
+    Using OpenStreetMap data and the `osmnx` library, I calculated a 'walkability' score 
+    (based on factors such as, street length, intersection density and green space proximity) for each street segment and aggregated these scores by neighborhood.
     """)
     
     # 2.1: Top 10 Neighborhoods Bar Chart
@@ -191,10 +194,14 @@ st.divider()
 # --- Conclusion ---
 st.header("Conclusion")
 st.markdown("""
-This analysis combines what people *feel* about walkability with what the data *shows*. 
-We can see a vibrant public discussion with both strong positive and negative sentiments, 
-which can provide context for *why* certain areas are used or avoided.
+I hope this helped you guys understand the way people *feel* about walkability and what the data *shows* about walkability. \n
 
-This public feedback is complemented by a clear, data-driven ranking of neighborhood walkability, 
-and a street-level map that pinpoints the most connected and accessible paths in the city.
+I really wanted to compare what other people were saying about walkability with some objective measures from Open Street Map data
+just to see how they compare. Overall, Ann Arbor is decently walkable. It's not the best but definitely not the worst.\n
+ 
+From my perspective, as someone who's lived in Ann Arbor my entire life, I wouldn't say Ann Arbor is a "walkable" city, but it is a "bikeable" city.
+There isn't a place in Ann Arbor where you could live your entire life within a 1 mile radius, like you probably could in NYC or LA or SF, 
+but a 3 mile radius should be doable.\n
+
+Let me know what you think about walkability in Ann Arbor!  
 """)
