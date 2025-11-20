@@ -15,7 +15,7 @@ st.set_page_config(
 # Use relative paths to the files you uploaded
 SENTIMENT_FILE = 'reddit_with_sentiment.csv'
 NEIGHBORHOOD_FILE = 'ann_arbor_neighborhood_walkability.csv'
-MAP_FILE = 'ann_arbor_walkability_top_10%.html'
+MAP_FILE = 'ann_arbor_walkability_top_10.html'
 
 # --- Caching Data ---
 @st.cache_data
