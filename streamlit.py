@@ -53,7 +53,11 @@ html_map = load_html_map(MAP_FILE)
 st.title("Ann Arbor Walkability: A Two-Part Analysis")
 st.markdown("""
 By: Brighton Han\n
-I wanted to explore walkability in Ann Arbor from multiple perspectives:
+From nightly walks with my mom during COVID to helping lower post meal blood glucose levels, walking has always been a big part of my life.
+Walking has showed me how much our surroundings influence our feelings of saftey, beloning and calm. But, this also made me
+wonder, *what actually makes a city walkable?*\n
+This project was my attempt to answer that question systematically. I wanted to turn something meaningful into something measureable. 
+Here is how I did it:
 1.  **Public Sentiment:** What are people saying on Reddit (r/AnnArbor) about walkability, downtown access, and pedestrian issues?
 2.  **Geospatial Data:** Which neighborhoods and street paths are objectively the most walkable based on network analysis from OpenStreetMap?
 """)
