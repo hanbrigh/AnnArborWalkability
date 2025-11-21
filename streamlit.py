@@ -216,7 +216,7 @@ Arbor–Saline Road, more than 3 miles away. My options are:
 2.  wait 30 minutes for a bus,
 3.  or… bike.
 
-Biking is the only transportation method that isn’t either physically exhausting or extremely time-consuming. It’s the perfect middle ground.\n
+Biking is the only transportation method that isn’t either physically exhausting or extremely time consuming. It’s the perfect middle ground.\n
 
 Pickleball is another great example. It’s become one of my favorite new activities, but the closest pickleball courts to downtown 
 Ann Arbor are also nearly 3 miles away. Too far to walk, and similarly inconvenient by bus. Yet it’s a quick, easy bike ride.\n
