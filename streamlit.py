@@ -226,6 +226,8 @@ city, but compact enough that biking unlocks everything—groceries, recreation,
 living here fun.
 """)
 
+st.divider()
+
 # --- Conclusion ---
 st.header("Conclusion")
 st.markdown("""
