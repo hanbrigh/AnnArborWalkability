@@ -195,17 +195,46 @@ else:
 
 st.divider()
 
+#-- Part 4: My perspective --
+st.header("Part 4: My perspective")
+st.markdown("""
+As someone who has lived in Ann Arbor their entire life, here is my two cents:\n
+
+I wouldn't say Ann Arbor is a *walkable* city, but it is definitely a *bikeable* one. There isn't anywhere in Ann Arbor where 
+you could realistically live your entire life within a one-mile radius the way you might in New York City, Los Angeles, or San Francisco.
+But a three-mile radius? That’s doable, and that’s exactly where biking becomes essential.\n
+
+Let’s take an ideal day in my life as an example. As a college student at U-M, I live in South Quad (in my opinion, the best one). 
+If I didn’t have a dining hall downstairs, I’d take the quick 10-minute walk over to The Hen on E. Washington and get a lox sandwich. 
+Afterward, I’d walk back to South Quad (probably listening to The Daily or Planet Money) and study for a few hours.\n
+
+Once I start to lose focus, I take a 10 minute walk to the IM building for a workout to clear my head. But when I get back to my dorm, 
+I realize I’m out of milk and pasta sauce.
+This is where Ann Arbor shifts from being walkable to bikeable. The closest decent-sized grocery store is Meijer on Ann 
+Arbor–Saline Road, more than 3 miles away. My options are:
+• walk for an hour,
+• wait 30 minutes for a bus,
+• or… bike.
+
+Biking is the only transportation method that isn’t either physically exhausting or extremely time-consuming. It’s the perfect middle ground.\n
+
+Pickleball is another great example. It’s become one of my favorite new activities, but the closest pickleball courts to downtown 
+Ann Arbor are also nearly 3 miles away. Too far to walk, and similarly inconvenient by bus. Yet it’s a quick, easy bike ride.\n
+
+And that’s really the point: Ann Arbor’s scale sits in an awkward middle zone. It’s too spread out to function as a truly walkable 
+city, but compact enough that biking unlocks everything—groceries, recreation, campus life, and the parts of the city that make 
+living here fun.
+""")
+
 # --- Conclusion ---
 st.header("Conclusion")
 st.markdown("""
-I hope this helped you guys understand the way people *feel* about walkability and what the data *shows* about walkability. \n
+I hope this helped you understand the way people feel about walkability and what the data shows about walkability.\n
+I really wanted to compare what residents were saying about walkability with objective measures from OpenStreetMap, just to see 
+how the lived experience matches the underlying infrastructure.\n 
+And overall, Ann Arbor is decently walkable. 
+It’s not the best, but it’s definitely not the worst; it sits in that middle space where walking works for some things, 
+but biking fills in the gaps.\n
 
-I really wanted to compare what other people were saying about walkability with some objective measures from Open Street Map data
-just to see how they compare. Overall, Ann Arbor is decently walkable. It's not the best but definitely not the worst.\n
- 
-From my perspective, as someone who's lived in Ann Arbor my entire life, I wouldn't say Ann Arbor is a "walkable" city, but it is a "bikeable" city.
-There isn't a place in Ann Arbor where you could live your entire life within a 1 mile radius, like you probably could in NYC or LA or SF, 
-but a 3 mile radius should be doable.\n
-
-Let me know what you think about walkability in Ann Arbor!  
+Let me know what you think about walkability in Ann Arbor!
 """)
