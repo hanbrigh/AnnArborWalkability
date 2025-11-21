@@ -212,9 +212,9 @@ Once I start to lose focus, I take a 10 minute walk to the IM building for a wor
 I realize I’m out of milk and pasta sauce.
 This is where Ann Arbor shifts from being walkable to bikeable. The closest decent-sized grocery store is Meijer on Ann 
 Arbor–Saline Road, more than 3 miles away. My options are:
-• **walk for an hour,**
-• **wait 30 minutes for a bus,**
-• **or… bike.**
+1.  walk for an hour,
+2.  wait 30 minutes for a bus,
+3.  or… bike.
 
 Biking is the only transportation method that isn’t either physically exhausting or extremely time-consuming. It’s the perfect middle ground.\n
 
